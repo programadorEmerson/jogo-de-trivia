@@ -13,7 +13,7 @@ import { CustomBoxFeedback, CustomStackFeedback } from "../styles/Feedback";
 import { CustomMain } from "../styles/Shared";
 
 const Feedback = () => {
-  const { email } = useSelector((state) => ({ ...state.player }));
+  const { email, score, assertions } = useSelector((state) => ({ ...state.player }));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,13 +30,10 @@ const Feedback = () => {
           <CustomMain>
             <PaperSlice sx={{ minHeight: "400px" }} elevation={3}>
               <CustomBoxFeedback>
-                <CustomStackFeedback
-                  spacing={1}
-                  direction="column"
-                >
+                <CustomStackFeedback spacing={1} direction="column">
                   <img src={resultado} alt="Timmer" width={170} />
-                  <span>Acertos: 90</span>
-                  <span>Sua pontuação: 89</span>
+                  <span>Acertos: {assertions}</span>
+                  <span>Sua pontuação: {score}</span>
                   <Button
                     fullWidth
                     variant="contained"
