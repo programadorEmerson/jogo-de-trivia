@@ -42,7 +42,7 @@ const Ranking = () => {
                           />
                         }
                         title={player.playerName}
-                        subheader={`Acertos: ${player.score}\nPontuação: ${player.score}`}
+                        subheader={`Acertos: ${player.assertions}\nPontuação: ${player.score}`}
                       />
                     </CustomCardRanking>
                   ))}

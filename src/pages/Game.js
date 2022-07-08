@@ -182,7 +182,7 @@ const Game = () => {
                           const dataTestId = isCorrect
                             ? "correct-answer"
                             : "wrong-answer";
-                          // if (isCorrect && index === 0)
+                          // if (isCorrect)
                           //   console.log("correct", answer);
 
                           return (
