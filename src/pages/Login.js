@@ -24,6 +24,9 @@ import { setPlayer } from "../redux/actons";
 import { setAllQuestions, setInitQuestions } from "../redux/actons";
 import { CustomStack } from "../styles/Shared";
 
+import abertura from "../assets/abertura.mp3";
+let audio = new Audio();
+
 const initialValues = {
   email: "",
   playerName: "",
@@ -53,6 +56,11 @@ const Login = () => {
     dispatch(setInitQuestions());
   }, [dispatch]);
 
+  useEffect(() => {
+    audio = new Audio(abertura);
+    audio.play();
+  }, []);
+
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -72,7 +80,7 @@ const Login = () => {
           type: "success",
           message: `Seja bem vindo ${loginData.playerName.split(" ")[0]}!`,
         });
-        // go to page game-page
+        audio.pause();
         navigate("/game-page");
       } catch (error) {
         const message = "Dados de acesso inválidos";
@@ -93,7 +101,7 @@ const Login = () => {
               sx={{ padding: isMobile ? "0 2rem" : "0 2rem" }}
             >
               <Loading trigger={isLoading} message="Efetuando login" />
-              <CustomImageLogo src={logo} alt="Logo do jogo Trivia" />
+              <CustomImageLogo onClick={() => audio.play()} src={logo} alt="Logo do jogo Trivia" />
               <Typography variant="body1" gutterBottom component="div">
                 Informe seus dados
               </Typography>

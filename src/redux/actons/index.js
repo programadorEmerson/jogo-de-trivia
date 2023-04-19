@@ -8,6 +8,7 @@ export const UPDATE_TIMMER = "UPDATE_TIMMER";
 export const MARK_ANSWERED = "MARK_ANSWERED";
 export const MIN_ASSERTIONS = "UPDATE_assertions";
 export const UPDATE_SEARCH_PARAMS = "UPDATE_SEARCH_PARAMS";
+export const GET_HELP = "GET_HELP";
 export const SET_INITIAL_STATE_PLAYER = 'SET_INITIAL_STATE_PLAYER';
 export const SET_INITIAL_STATE_QUESTIONS = 'SET_INITIAL_STATE_QUESTIONS';
 
@@ -58,6 +59,11 @@ export const setAssertions = (payload) => ({
 
 export const setSearchParams = (payload) => ({
   type: UPDATE_SEARCH_PARAMS,
+  payload,
+});
+
+export const getHelp = (payload) => ({
+  type: GET_HELP,
   payload,
 });
 
