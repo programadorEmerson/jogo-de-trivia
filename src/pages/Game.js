@@ -176,8 +176,10 @@ const Game = () => {
         }, ONE_SECOND);
       }
     }
-    console.log('timer help: ', 20 - progress)
-  }, [answered, dispatch, elapsedTime, progress]);
+    if (questions.length && elapsedTime === 30) {
+      navigator.clipboard.writeText(decodeEntity(questions[currentQuestion].question))
+    }
+  }, [answered, currentQuestion, dispatch, elapsedTime, progress, questions]);
 
   useEffect(() => {
     if (!email) {
@@ -301,9 +303,6 @@ const Game = () => {
                           const dataTestId = isCorrect
                             ? "correct-answer"
                             : "wrong-answer";
-                          if (isCorrect)
-                            console.log("correct", answer);
-
                           return (
                             <Button
                               fullWidth
