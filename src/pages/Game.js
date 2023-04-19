@@ -264,11 +264,11 @@ const Game = () => {
                       {progress > 0 && (
                         <Button
                           fullWidth
+                          disabled
                           variant="contained"
                           type="button"
                           className={"btn-next"}
                           data-testid="btn-next"
-                          onClick={() => handleNext()}
                         >
                           {`Tempo de ajuda: ${20 - progress} segundos`}
                         </Button>
