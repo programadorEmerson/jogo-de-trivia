@@ -80,13 +80,13 @@ const Login = () => {
           type: "success",
           message: `Seja bem vindo ${loginData.playerName.split(" ")[0]}!`,
         });
-        audio.pause();
         navigate("/game-page");
       } catch (error) {
         const message = "Dados de acesso inválidos";
         AlertNotification({ type: "error", message });
       } finally {
         setIsLoading(false);
+        audio.pause();
       }
     },
   });

@@ -33,7 +33,7 @@ const ONE = 1;
 const ONE_SECOND = 1000;
 const TWO = 2;
 const THREE = 3;
-const TIME = 30;
+const TIME = 45;
 const DEFAULT_POINTS = 10;
 
 const audioHelp = new Audio(helpMusic);
@@ -176,7 +176,7 @@ const Game = () => {
         }, ONE_SECOND);
       }
     }
-    if (questions.length && elapsedTime === 30) {
+    if (questions.length && elapsedTime === TIME) {
       navigator.clipboard.writeText(decodeEntity(questions[currentQuestion].question))
     }
   }, [answered, currentQuestion, dispatch, elapsedTime, progress, questions]);
